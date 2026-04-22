@@ -1,17 +1,13 @@
-# Grammar Transformation Tool
-# Performs:
-# 1. Left Recursion Elimination
-# 2. Left Factoring
 
 from collections import defaultdict
 
-# -------- INPUT GRAMMAR --------
+
 grammar = {
     "E": ["E+T", "T"],
     "S": ["ifEthenSelseS", "ifEthenS"]
 }
 
-# --------------------------------
+
 
 
 def eliminate_left_recursion(grammar):
@@ -75,7 +71,7 @@ def print_grammar(grammar, title):
         print(f"{non_terminal} -> {' | '.join(grammar[non_terminal])}")
 
 
-# -------- EXECUTION --------
+
 
 print_grammar(grammar, "Original Grammar")
 
