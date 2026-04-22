@@ -1,8 +1,8 @@
-# FIRST and FOLLOW Computation
+
 
 from collections import defaultdict
 
-# Grammar Representation
+
 grammar = {
     "E": ["TR"],
     "R": ["+TR", "ε"],
@@ -14,7 +14,7 @@ grammar = {
 non_terminals = grammar.keys()
 terminals = set()
 
-# Identify terminals
+
 for productions in grammar.values():
     for prod in productions:
         for symbol in prod:
@@ -24,7 +24,7 @@ for productions in grammar.values():
 FIRST = defaultdict(set)
 FOLLOW = defaultdict(set)
 
-# Compute FIRST
+
 def compute_first():
     changed = True
     while changed:
@@ -50,7 +50,6 @@ def compute_first():
                         if before != len(FIRST[non_terminal]):
                             changed = True
 
-# Compute FOLLOW
 def compute_follow():
     start_symbol = list(grammar.keys())[0]
     FOLLOW[start_symbol].add("$")
@@ -90,7 +89,6 @@ def compute_follow():
 compute_first()
 compute_follow()
 
-# Print Results
 print("\nFIRST Sets:")
 for nt in grammar:
     print(f"FIRST({nt}) = {FIRST[nt]}")
