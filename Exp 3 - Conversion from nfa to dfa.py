@@ -1,8 +1,8 @@
-# NFA to DFA Conversion using Subset Construction
+
 
 from collections import defaultdict, deque
 
-# Define NFA
+
 nfa = {
     'q0': {'a': ['q0', 'q1'], 'b': ['q0']},
     'q1': {'a': ['q2'], 'b': []},
